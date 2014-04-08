@@ -12,8 +12,32 @@ public class Shaass {
 	
 	public Shaass() {
 		
+		
 		count  = scanner.nextInt();
+		for (int i = 0; i < count; i++) {
+			birds[i] = scanner.nextInt();
+		}
+		
 		shot = scanner.nextInt();
+		for (int i = 0; i < shot; i++) {
+			int x, y;
+			x= scanner.nextInt();
+			y= scanner.nextInt();
+			
+			--x;
+			
+			if (x != 0) 
+				birds[x-1] += y-1;
+			
+			if (x != count-1) 
+				birds[x+1] += birds[x]-y;
+			
+			birds[x] = 0;
+		}
+		
+		for (int i = 0; i < count; i++) {
+			System.out.println(birds[i]);
+		}
 		
 	}
 
